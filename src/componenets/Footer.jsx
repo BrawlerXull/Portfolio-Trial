@@ -6,7 +6,7 @@ import "../App.css"
 
 function Footer() {
   return (
-    <div className='footer'>
+    <div className='footer' id='contact'>
         <div className='footer-title'>Connect Me</div>
         <div className='icons'>
         <FaFacebook className='icon'/>
