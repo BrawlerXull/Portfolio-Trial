@@ -32,7 +32,7 @@ function Intro() {
           </div>
         </h2>
         <h5 className="intro-text">
-          I am First Year Engineering student currently pursing Information
+          I am First Year Engineering student currently pursing majors in Information
           Technology
         </h5>
       </div>
