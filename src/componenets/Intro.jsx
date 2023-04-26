@@ -1,8 +1,31 @@
 import React from "react";
 import "../App.css";
-import { useRef } from "react";
+import { useRef,useEffect,useState } from "react";
+import { useSpring, animated } from "react-spring";
 function Intro() {
   var text = useRef();
+  const [show, setShow] = useState(false);
+  const fade = useSpring({ opacity: show ? 1 : 0 });
+  const animation = useSpring({
+    from: {
+      transform: 'scale(0) rotate(-180deg)',
+      opacity: 0,
+    },
+    to: {
+      transform: 'scale(1) rotate(0deg)',
+      opacity: 1,
+    },
+    config: {
+      tension: 200,
+      friction: 20,
+      delay: 500,
+    },
+    reset: show,
+  });
+
+  useEffect(() => {
+    setShow(true);
+  }, []);
   function buttonClicked() {
     fetch("https://anonymous-message-pi.vercel.app/send", {
       method: "POST",
@@ -11,7 +34,7 @@ function Intro() {
       },
       body: JSON.stringify({
         // data to be sent in the request body
-        message:text.current.value,
+        message: text.current.value,
       }),
     })
       .then((response) => response.json())
@@ -23,7 +46,7 @@ function Intro() {
   }
   return (
     <div className="intro" id="intro">
-      <div className="intro-left">
+      <animated.div className="intro-left" style={fade}>
         <h4 className="name">Tech Enthusiast</h4>
         <h2 className="intro-name">
           <div>
@@ -32,11 +55,11 @@ function Intro() {
           </div>
         </h2>
         <h5 className="intro-text">
-          I am First Year Engineering student currently pursing majors in Information
-          Technology
+          I am First Year Engineering student currently pursing majors in
+          Information Technology
         </h5>
-      </div>
-      <div className="intro-right">
+      </animated.div>
+      <animated.div className="intro-right" style={animation}>
         <h4 className="intro-right-title">Send me a Anonymous message</h4>
         <div className="intro-right-element">
           <div className="intro-right-input-container">
@@ -53,7 +76,7 @@ function Intro() {
             </button>
           </div>
         </div>
-      </div>
+      </animated.div>
     </div>
   );
 }
