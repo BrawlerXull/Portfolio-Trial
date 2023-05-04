@@ -6,16 +6,13 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background: linear-gradient(to bottom right, #4B6CB7, #182848);
+  /* background: linear-gradient(to bottom right, #4B6CB7, #182848); */
+  background: radial-gradient(103.31% 322.48% at -3.3% -3.31%, #a310a5, #3631ac 40.22%, #291f71 69.36%, #200242);
 
 
 
 
-
-
-
-
-  padding-left: 10%;
-  padding-right: 10%;
+  padding-left: 5%;
+  padding-right: 5%;
 }
 

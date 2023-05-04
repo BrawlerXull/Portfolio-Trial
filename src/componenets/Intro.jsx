@@ -43,6 +43,8 @@ function Intro() {
 
     var x = text.current.value;
     console.log(x);
+    text.current.value="";
+    alert(`Message '${x}' sent successfully`);
   }
   return (
     <div className="intro" id="intro">
